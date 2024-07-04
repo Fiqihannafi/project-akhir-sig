@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Akhir SIG.</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>SIG Universitas Depok-Jakarta Selatan.</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#kampus">kampus</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="" class="tbl-biru">Login</a></li>
+                </ul>   
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <!-- untuk map -->
+        <!DOCTYPE html>
+        <html lang="id">
+            <head>
+                <title>Universitas Depok-Jakarta Selatan</title>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+                    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>   
+    
+                <style>
+                    #map    {height: 400px; }
+                </style>
+                
+                <!-- Make sure you put this AFTER Leaflet's CSS -->
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>    
+    
+            </head>
+            <body>
+                <div id="map"></div>
+                <script>
+    
+                var map = L.map('map').setView([-6.3529, 106.8326], 13);
+    
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+    
+        var aoi = {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Kampus B STT NF",
+            "lokasi":"Srengseng sawah Jaksel",
+            "kecamatan":"Jagakarsa",
+          },
+          "geometry": {
+            "coordinates": [
+              106.83268206427852,
+              -6.352890419739651
+            ],
+            "type": "Point"
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Kampus A STT NF",
+            "lokasi":"Kelapa dua Depok",
+            "kecamatan":"Jagakarsa  ",
+          },
+          "geometry": {
+            "coordinates": [
+              106.84351202490723,
+              -6.362985632318825
+            ],
+            "type": "Point"
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Universitas Indonesia",
+            "lokasi":"Depok",
+            "kecamatan":"Beji"
+          },
+          "geometry": {
+            "coordinates": [
+              106.82948297269797,
+              -6.363505361003433
+            ],
+            "type": "Point"
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Universitas Pancasila",
+            "lokasi":"Lenteng Agung Jaksel",
+            "kecamatan":"Jagakarsa",
+          },
+          "geometry": {
+            "coordinates": [
+              106.8327763077225,
+              -6.339211276530264
+            ],
+            "type": "Point"
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Kampus H Univ Gunadarma",
+            "lokasi":"Kelapa dua Depok",
+            "kecamatan":"Cimanggis",
+          },
+          "geometry": {
+            "coordinates": [
+              106.83739007701678,
+              -6.353041102047186
+            ],
+            "type": "Point"
+          }
+        },
+        {
+          "type": "Feature",
+          "properties": {
+            "kampus":"Kampus Politeknik Media Kreatif",
+            "lokasi":"Srengseng sawah Jaksel",
+            "kecamatan":"Jagakarsa",
+          },
+          "geometry": {
+            "coordinates": [
+              106.82721519741477,
+              -6.3471101694904775
+            ],
+            "type": "Point"
+          }
+        }
+      ]
+    }
+        
+    
+    var geojson = L.geoJSON(aoi, {
+            onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.kampus  +"<br/>"+ feature.properties.lokasi + "<br/>" + feature.properties.kecamatan);
+            }
+    }).addTo(map);
+        
+                </script>
+            </body>
+    </html>
+
+        <!-- untuk home -->
+        <section id="home">
+            <img src="https://img.freepik.com/free-vector/happy-tiny-people-near-huge-welcome-word-flat-illustration_74855-10808.jpg?uid=R62204682&ga=GA1.1.658545055.1719939845&semt=sph"/>
+            <div class="kolom">
+                <h2>Menampilkan data universitas, lokasi, dan kecamatan</h2>
+                <p>Tugas Akhir SIG</p>
+                <p><a href="" class="tbl-orange">Pelajari Lebih Lanjut</a></p>
+            </div>
+        </section>
+
+        <!-- untuk kampus -->
+          <html>
+        <head>
+            <title>Universitas Depok-Jakarta Selatan </title>
+            <link rel="stylesheet" type="text/css" href="tabel.css">
+        </head>
+        <body>
+        <h3>Data Universitas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Universitas</th>
+                    <th>lokasi</th>
+                    <th>kecamatan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>STT Terpadu Nurul Fikri B</td>
+                    <td>Srengseng sawah Jaksel</td>
+                    <td>Jagakarsa</td>
+                </tr>
+                <tr>
+                    <td>STT Terpadu Nurul Fikri A</td>
+                    <td>Kelapa dua Depok</td>
+                    <td>Cimanggis</td>
+                </tr>
+                <tr>
+                    <td>Universitas Indonesia</td>
+                    <td>Depok</td>
+                    <td>Beji</td>
+                </tr>
+                <tr>
+                    <td>Universitas Gunadarma H</td>
+                    <td>Kelapa Dua Depok</td>
+                    <td>Cimanggis</td>
+                </tr>
+                <tr>
+                    <td>Universitas Pancasila</td>
+                    <td>Lenteng Agung Jaksel</td>
+                    <td>Jagakarsa</td>
+                </tr>
+                <tr>
+                    <td>Universitas Politeknik Media Kreatif</td>
+                    <td>Lenteng Agung Jaksel</td>
+                    <td>Jagakarsa</td>
+                </tr>
+            </tbody>
+        </table>
+                </html>
+                <section id="kampus">
+
+        
+    <div id="copyright">
+        <div class="wrapper">
+            &copy; 2024. <b>SIG Universitas Depok-Jakarta selatan.</b> All Rights Reserved.
+        </div>
+    </div>
+    
+</body>
+</html>
